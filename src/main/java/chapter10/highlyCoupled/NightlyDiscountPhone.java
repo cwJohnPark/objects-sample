@@ -1,20 +1,18 @@
-package chapter10.inheritance;
+package chapter10.highlyCoupled;
 
 import chapter10.Call;
 import chapter10.Money;
-import chapter10.duplicate.Phone;
+import chapter10.highlyCoupled.Phone;
 
 import java.time.Duration;
 
-/**
- *  상속을 이용하여 중복 코드 제거하기
- */
+// 강하게 결합된 Phone과 NightlyDiscountPhone
 public class NightlyDiscountPhone extends Phone {
     private static final int LATE_NIGHT_HOUR = 22;
     private Money nightlyAmount;
 
-    public NightlyDiscountPhone(Money nightlyAmount,Money regulatAmount, Duration seconds) {
-        super(regulatAmount, seconds);
+    public NightlyDiscountPhone(Money nightlyAmount,Money regulatAmount, Duration seconds, double taxRate) {
+        super(regulatAmount, seconds, taxRate);
         this.nightlyAmount = nightlyAmount;
     }
 
@@ -31,7 +29,7 @@ public class NightlyDiscountPhone extends Phone {
                                 call.getDuration().getSeconds() / getSeconds().getSeconds()));
             }
         }
-        return result.minus(nightlyFee);
+        return result.minus(nightlyFee.plus(nightlyFee.times(getTaxRate())));
     }
 }
 
