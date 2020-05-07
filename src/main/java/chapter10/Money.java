@@ -8,11 +8,11 @@ public class Money {
     private final BigDecimal amount;
 
     public Money(BigDecimal amount) {
-        this.amount = amount;
+        this.amount = amount.setScale(0);
     }
 
     public static Money wons(double amount) {
-        return new Money(BigDecimal.valueOf(amount));
+        return new Money(BigDecimal.valueOf(amount).setScale(0));
     }
 
     public Money plus(Money amount) {
@@ -22,6 +22,7 @@ public class Money {
     public Money times(double percent) {
         return new Money(this.amount.multiply(BigDecimal.valueOf(percent)));
     }
+
     public Money minus(Money amount) {
         return new Money(this.amount.subtract(amount.amount));
     }

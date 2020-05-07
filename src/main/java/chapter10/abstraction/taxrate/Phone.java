@@ -24,5 +24,9 @@ public abstract class Phone {
         return result.plus(result.times(taxRate)); // 세금 부과 기능 추가
     }
 
+    public List<Call> getCalls() {
+        return calls;
+    }
+
     abstract protected Money calculateCallFee(Call call);
 }
