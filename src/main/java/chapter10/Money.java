@@ -1,6 +1,7 @@
 package chapter10;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Money {
     public final static Money ZERO = Money.wons(0);
@@ -8,11 +9,11 @@ public class Money {
     private final BigDecimal amount;
 
     public Money(BigDecimal amount) {
-        this.amount = amount.setScale(0);
+        this.amount = amount.compareTo(new BigDecimal(0)) < 0 ? new BigDecimal(0) : amount.setScale(0, RoundingMode.DOWN);
     }
 
     public static Money wons(double amount) {
-        return new Money(BigDecimal.valueOf(amount).setScale(0));
+        return new Money(BigDecimal.valueOf(amount));
     }
 
     public Money plus(Money amount) {
@@ -35,5 +36,13 @@ public class Money {
 
     public BigDecimal getAmount() {
         return amount;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Money) {
+            return ((Money) obj).amount.compareTo(this.amount) == 0;
+        }
+        return false;
     }
 }
