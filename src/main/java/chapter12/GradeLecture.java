@@ -51,4 +51,11 @@ public class GradeLecture extends Lecture {
                     .average()
                     .orElse(0);
     }
+
+    // self의 참조, 동적 메서드 탐색
+    @Override
+    public String getEvaluationMethod() {
+        return "Grade";
+    }
+
 }

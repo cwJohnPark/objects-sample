@@ -40,4 +40,11 @@ public class Lecture {
         return scores.stream().filter(score -> score >= pass).count();
     }
 
+    public String stats() {
+        return String.format("Title: %s, Evaluation Method: %s", title, getEvaluationMethod());
+    }
+
+    public String getEvaluationMethod() {
+        return "Pass or Fail";
+    }
 }
