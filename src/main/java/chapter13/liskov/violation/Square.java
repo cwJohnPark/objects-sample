@@ -1,0 +1,23 @@
+package chapter13.liskov.violation;
+
+/**
+ * 정사각형
+ * height값을 width와 동일하게 갖도록 보장한다.
+ */
+public class Square extends Rectangle {
+    public Square(int x, int y, int size) {
+        super(x, y, size, size);
+    }
+
+    @Override
+    public void setWidth(int width) {
+        super.setWidth(width);
+        super.setHeight(width);
+    }
+
+    @Override
+    public void setHeight(int height) {
+        super.setHeight(height);
+        super.setWidth(height);
+    }
+}
