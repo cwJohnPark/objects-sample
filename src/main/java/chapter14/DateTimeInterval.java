@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DateTimeInterval {
-    private LocalDateTime from;
-    private LocalDateTime to;
+    private LocalDateTime from; // 시작 시간
+    private LocalDateTime to;   // 종료 시간
 
     public static DateTimeInterval of(LocalDateTime from, LocalDateTime to) {
         return new DateTimeInterval(from, to);
