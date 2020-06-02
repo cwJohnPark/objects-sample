@@ -1,4 +1,4 @@
-package chapter1;
+package chapter1.highlycoupled;
 
 /**
  * 소극장을 구현

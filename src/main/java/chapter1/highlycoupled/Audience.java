@@ -1,4 +1,4 @@
-package chapter1;
+package chapter1.highlycoupled;
 
 /**
  * 관람객이라는 개념을 구현

@@ -1,4 +1,4 @@
-package chapter1;
+package chapter1.highlycoupled;
 
 /**
  * 판매원은 매표소에서 초대장을 티켓으로 교환하거나

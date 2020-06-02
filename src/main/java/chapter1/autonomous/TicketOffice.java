@@ -1,11 +1,8 @@
-package chapter1;
+package chapter1.autonomous;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 티켓을 판매하거나 교환한다.
- */
 public class TicketOffice {
     private Long amount;
     private List<Ticket> tickets = new ArrayList<>();

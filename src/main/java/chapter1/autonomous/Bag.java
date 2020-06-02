@@ -1,9 +1,7 @@
-package chapter1;
+package chapter1.autonomous;
 
-/**
- * 관람객이 소지품을 보관할 수 있는 가방
- */
 public class Bag {
+
     private Long amount;
     private Invitation invitation;
     private Ticket ticket;
