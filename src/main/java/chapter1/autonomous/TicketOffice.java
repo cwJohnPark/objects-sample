@@ -12,7 +12,8 @@ public class TicketOffice {
         this.tickets = tickets;
     }
 
-    public Ticket getTicket() {
+    // private 으로 캡슐화
+    private  Ticket getTicket() {
         return tickets.remove(0);
     }
 
@@ -20,8 +21,13 @@ public class TicketOffice {
         this.amount -= amount;
     }
 
-    public void plusAmount(Long amount) {
+    // private 으로 캡슐화
+    private void plusAmount(Long amount) {
         this.amount += amount;
     }
 
+    // TicketOffice와 Audience 사이에 의존성이 추가됨
+    public void sellTicketTo(Audience audience) {
+        plusAmount(audience.buy(getTicket()));
+    }
 }

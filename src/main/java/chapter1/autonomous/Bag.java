@@ -6,6 +6,20 @@ public class Bag {
     private Invitation invitation;
     private Ticket ticket;
 
+    /**
+     * Bag의 내부 상태를 캡슐화한다.
+     */
+    public Long hold(Ticket ticket) {
+        if (hasInvitation()) {
+            setTicket(ticket);
+            return 0L;
+        } else {
+            setTicket(ticket);
+            minusAmount(ticket.getFee());
+            return ticket.getFee();
+        }
+    }
+
     public Bag(Long amount) {
         this.amount = amount;
     }

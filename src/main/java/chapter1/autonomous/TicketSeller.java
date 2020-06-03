@@ -11,22 +11,27 @@ public class TicketSeller {
         this.ticketOffice = ticketOffice;
     }
 
+    public void sellTo(Audience audience) {
+        ticketOffice.sellTicketTo(audience);
+    }
+
     /**
      * 관객에게 티켓을 판매한다.
      */
-    public void sellTo(Audience audience) {
-        // 관객이 Bag을 가졌는지 묻지 않는다.
-        ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));
-
-//        if (audience.getBag().hasInvitation()) {
-//            Ticket ticket = ticketOffice.getTicket();
-//            audience.getBag().setTicket(ticket);
-//        } else {
-//            Ticket ticket = ticketOffice.getTicket();
-//            audience.getBag().minusAmount(ticket.getFee());
-//            ticketOffice.plusAmount(ticket.getFee());
-//            audience.getBag().setTicket(ticket);
-//        }
-
-    }
+//    public void sellTo(Audience audience) {
+//        // 관객이 Bag을 가졌는지 묻지 않는다.
+//        // 하지만, ticketOffice에게 자율권이 없다.
+//        ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));
+//
+////        if (audience.getBag().hasInvitation()) {
+////            Ticket ticket = ticketOffice.getTicket();
+////            audience.getBag().setTicket(ticket);
+////        } else {
+////            Ticket ticket = ticketOffice.getTicket();
+////            audience.getBag().minusAmount(ticket.getFee());
+////            ticketOffice.plusAmount(ticket.getFee());
+////            audience.getBag().setTicket(ticket);
+////        }
+//
+//    }
 }

@@ -15,14 +15,21 @@ public class Audience {
     /**
      * 티켓을 구매한다.
      */
-    public Long buy(Ticket ticket) {
-        if (bag.hasInvitation()) {
-            bag.setTicket(ticket);
-            return 0L;
-        } else {
-            bag.setTicket(ticket);
-            bag.minusAmount(ticket.getFee());
-            return ticket.getFee();
-        }
-    }
+//    public Long buy(Ticket ticket) {
+//        if (bag.hasInvitation()) { // Bag은 수동적인 존재이다.
+//            bag.setTicket(ticket);
+//            return 0L;
+//        } else {
+//            bag.setTicket(ticket);
+//            bag.minusAmount(ticket.getFee());
+//            return ticket.getFee();
+//        }
+//    }
+
+    /**
+     * Audience는 Bag의 인터페이스에만 의존한다.
+     */
+     public Long buy(Ticket ticket) {
+         return bag.hold(ticket);
+     }
 }
