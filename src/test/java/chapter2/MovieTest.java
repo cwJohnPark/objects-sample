@@ -53,6 +53,25 @@ public class MovieTest {
         assertThat(actual.getAmount(), is(expected.getAmount()));
     }
 
+    @Test
+    public void testNoneDiscountPolicy() throws Exception {
+        // given
+        final int MOVIE_FEE = 10000;
+        Movie starWars = new Movie("스타워즈",
+                Duration.ofMinutes(210),
+                Money.wons(MOVIE_FEE),
+                new NoneDiscountPolicy());
+        // when
+        Reservation reserve = getScreeningFixture(starWars).reserve(new Customer(), 3);
+
+        // then
+        Money actual = reserve.getFee();
+        Money expected = Money.wons(MOVIE_FEE * 3);
+
+        assertThat(actual.getAmount(), is(expected.getAmount()));
+        
+    }
+
     // FIXTURE
     private Screening getScreeningFixture(Movie movie) {
         return new Screening(
