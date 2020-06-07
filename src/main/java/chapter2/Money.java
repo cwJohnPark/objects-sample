@@ -19,7 +19,7 @@ public class Money {
     }
 
     Money(BigDecimal amount) {
-        this.amount = amount;
+        this.amount = amount.setScale(0);
     }
 
     public Money plus(Money amount) {
@@ -40,5 +40,17 @@ public class Money {
 
     public boolean isGreaterThanOrEqual(Money other) {
         return amount.compareTo(other.amount) >= 0;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    @Override
+    public boolean equals(Object operand) {
+        if(operand instanceof Money) {
+            return ((Money) operand).getAmount() == this.amount;
+        }
+        return false;
     }
 }
