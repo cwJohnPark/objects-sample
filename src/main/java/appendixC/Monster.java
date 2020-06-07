@@ -7,6 +7,9 @@ public class Monster {
     public Monster(Breed breed) {
         this.health = breed.getHealth();
     }
+    public Monster(int health) {
+        this.health = health;
+    }
 
     public String getAttack() {
         return breed.getAttack();
