@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 public class Screening {
     private Movie movie;
     private int sequence;
-    private LocalDateTime whenScreend;
+    private LocalDateTime whenScreened;
 
-    public Screening(Movie movie, int sequence, LocalDateTime whenScreend) {
+    public Screening(Movie movie, int sequence, LocalDateTime whenScreened) {
         this.movie = movie;
         this.sequence = sequence;
-        this.whenScreend = whenScreend;
+        this.whenScreened = whenScreened;
     }
 
     public Reservation reserve(Customer customer, int audienceCount) {
@@ -33,6 +33,6 @@ public class Screening {
     }
 
     public LocalDateTime getStartTime() {
-        return whenScreend;
+        return whenScreened;
     }
 }
